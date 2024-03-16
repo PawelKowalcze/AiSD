@@ -62,10 +62,25 @@ print(x)
 print(x[0])
 print(type(x))
 
-y = int(input('Insert text: '))
-print(type(y))
+# y = int(input('Insert text: '))
+# print(type(y))
 
 l = ['a', 'b', 'c', 3]
 for i in l:
     print(i)
 
+x = 0
+while x < 5:
+    print(x)
+    x += 1
+
+
+# func:
+
+
+def Newprint(z):
+    print('Your value: ' + str(z))
+
+
+Newprint(5)
+Newprint('abc')
