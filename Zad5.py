@@ -10,19 +10,64 @@ def PrintBoard():
     print("-------")
 
 
-def PlayerMove(Turn):
-    x = int(input("Choose your x coordinate: "))
-    y = int(input("Choose your y coordinate: "))
-    if Turn % 2 == 0:
-        Board[y - 1][x - 1] = "X"
+def didSbWin(player):
+    if player % 2 == 0:
+        name = 'O'
     else:
-        Board[y - 1][x - 1] = "O"
+        name = 'X'
 
-    PrintBoard()
-    print()
+    if Board[0][0] == Board[1][1] == Board[2][2] != " " or Board[2][0] == Board[1][1] == Board[0][2] != " ":
+        return name
+
+    for i in range(0, 3):
+        if Board[0][i] == Board[1][i] == Board[2][i] != " " or Board[i][0] == Board[i][1] == Board[i][2] != " ":
+            return name
+    return 0
 
 
-Turn = 0
+def PlayerMove(Player):
+    while True:
+        x = int(input("Choose your x coordinate: (1-3)\n"))
+        y = int(input("Choose your y coordinate: (1-3)\n"))
+        if 1 <= x <= 3 and 1 <= y <= 3:
+            if Board[y - 1][x - 1] == " ":
+                if Player % 2 == 0:
+                    Board[y - 1][x - 1] = "O"
+                    PrintBoard()
+                    if didSbWin(Player) != 0:
+                        print('WINNER: ' + str(didSbWin(Player)))
+                        return 10
+                    break
+                else:
+                    Board[y - 1][x - 1] = "X"
+                    PrintBoard()
+                    if didSbWin(Player) != 0:
+                        print('WINNER: ' + str(didSbWin(Player)))
+                        return 10
+                    break
+            else:
+                print('Index taken. Try again\n')
+        else:
+            print('Wrong index. Try again\n')
+
+
+playerIndex = 0
+gameplay = int(input('HI. This is game Tic-Tac-Toe. Would you like to play? (1 - yes, 2 - no)\n'))
 while True:
-    PlayerMove(Turn)
-    Turn += 1
+    if gameplay == 1:
+        if PlayerMove(playerIndex) == 10:
+            playerIndex = 9
+        playerIndex += 1
+        if playerIndex >= 9:
+            if playerIndex == 9:
+                print('Its a tie \n')
+            else:
+                gameplay = int(input('Would you like to play again? 1 - yes, 2 - no\n'))
+                Board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+                playerIndex = 0
+
+    elif gameplay == 2:
+        print('Game has ended\n')
+        break
+    else:
+        gameplay = int(input('Incorrect option - try again. (1 - yes, 2 - no)\n'))
