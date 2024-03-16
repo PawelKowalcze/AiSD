@@ -84,3 +84,5 @@ def Newprint(z):
 
 Newprint(5)
 Newprint('abc')
+
+
