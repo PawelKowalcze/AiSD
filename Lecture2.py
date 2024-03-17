@@ -53,3 +53,5 @@ print(printable_s)
 d =dict(who='tim', what='kung pao')
 x = Template('$who likes $what').safe_substitute(d)
 print(x)
+
+print(x)
