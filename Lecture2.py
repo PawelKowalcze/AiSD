@@ -65,3 +65,24 @@ txt2 = (
 print(txt2)
 
 
+f = open('text.txt', 'r')
+print(f)
+txt = f.read()
+print(txt)
+print('---')
+print(txt.splitlines())
+print('###')
+print(f.readline())
+print('***')
+f.close()
+
+f = open('text.txt', 'r')
+print(f.readline())
+f.close()
+
+f = open('text.txt', 'r')
+for line in f:
+    print(line)
+
+f.close()
+print('---')
