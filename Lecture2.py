@@ -17,7 +17,6 @@ print(text[1:7].capitalize())
 print(text.islower())
 print(text[3].isspace())
 print(text[0:2].isalpha())
-
 print(text.find('l'))  # index pierwszego wystąpienia
 print(text.find('ma'))
 print(text.count('a'))
@@ -54,4 +53,15 @@ d =dict(who='tim', what='kung pao')
 x = Template('$who likes $what').safe_substitute(d)
 print(x)
 
-print(x)
+name = 'Elisa'
+age = 12
+txt = f'Hello, {name}, you are {age} years old.'
+print(txt)
+
+txt2 = (
+    f'Hi, {name}.'
+    f'You are {age + 3}.'
+)
+print(txt2)
+
+

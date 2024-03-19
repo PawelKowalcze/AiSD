@@ -1,0 +1,2 @@
+Hi, This is text in document text.txt.
+This is for test purposes.
