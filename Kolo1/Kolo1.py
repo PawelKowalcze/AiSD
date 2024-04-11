@@ -1,5 +1,3 @@
-from math import *
-from statistics import *
 from random import *
 
 l = []
