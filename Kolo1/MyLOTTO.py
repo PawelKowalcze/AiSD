@@ -1,9 +1,9 @@
 from random import *
-
-l = []
-
+'''
 
 class LOTTO:
+    l = []
+
     def __init__(self, l):
         self.l = l
         self.l.sort()
@@ -31,7 +31,6 @@ def GRAJ(n,isequal):
 for i in range(0, 6):
     l.append(randint(0, 48))
 
-for i in range(0,n):
 
 
 n = int(input("How many attempts?"))
@@ -40,3 +39,8 @@ Obj2 = LOTTO(l)
 
 
 print(SPRAWDZ(Obj1.ret(), Obj2.ret()))
+'''
+
+f = open(f'Name', 'w')
+f.writelines(f"XDD")
+f.close()
