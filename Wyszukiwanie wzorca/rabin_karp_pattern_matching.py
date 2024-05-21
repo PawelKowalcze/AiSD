@@ -1,10 +1,6 @@
-""" Here we will implement the rabin karp matching algorithm for the given pattern. Note that it only works for patterns
-where you have one row and one column of characters. """
 from time import time
-
-d = 17
+d = 19
 q = 101
-
 
 def rabin_karp_pattern_matching(str_array, pattern):
     results = []
@@ -19,8 +15,6 @@ def rabin_karp_pattern_matching(str_array, pattern):
     for i in range(p_h):
         pattern_vertical_hash = (d * pattern_vertical_hash + ord(pattern[i][0])) % q
 
-    # note that for patterns where the row and column length is the same, h is also the same
-
     h = 1
     for i in range(p_w - 1):
         h = (d * h) % q
@@ -28,7 +22,6 @@ def rabin_karp_pattern_matching(str_array, pattern):
     row_index = 0
     hash_start = time()
     for row in str_array:
-
         first_window_hash = 0
         for i in range(p_w):
             first_window_hash = (d * first_window_hash + ord(row[i])) % q
@@ -40,7 +33,6 @@ def rabin_karp_pattern_matching(str_array, pattern):
             if window_hash < 0:
                 window_hash = window_hash + q
             rows_hashed[row_index].append(window_hash)
-            # calculate the hash for the first window of the pattern
         row_index += 1
 
     cols_hashed = []
@@ -67,3 +59,8 @@ def rabin_karp_pattern_matching(str_array, pattern):
                     results.append((i, j))
     results.append(hash_end - hash_start)
     return results
+
+f = [char for char in open('1000_pattern.txt', 'r').read().splitlines()]
+pattern = ['ABC', 'B??', 'C??']
+
+print(rabin_karp_pattern_matching(f, pattern))

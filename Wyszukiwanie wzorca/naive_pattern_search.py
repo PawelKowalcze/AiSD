@@ -13,3 +13,9 @@ def naive_pattern_search(str_array, pattern):
                 if is_pattern:
                     result.append((array_row, array_column))
     return result
+
+
+f = [char for char in open('1000_pattern.txt', 'r').read().splitlines()]
+pattern = ['ABC', 'B??', 'C??']
+
+print(naive_pattern_search(f, pattern))
